@@ -1,0 +1,10 @@
+html {
+  overflow-y: scroll;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #000;
+}

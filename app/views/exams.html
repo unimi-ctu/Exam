@@ -1,0 +1,26 @@
+<h3><span class="glyphicon glyphicon-time"></span> Cronologia sessioni d'esame</h3>	
+<table class="table">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Id</th>
+			<th>Titolo esame</th>
+			<th>Data</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="session in sessions">
+			<td><div class="circle" style="background: rgba({{ session.id % 256 }}, {{ 256 - session.id % 256 }}, 80, 1)"></div></td>
+			<td>{{ session.id }}</td>
+			<td>
+				<div><a href="#exam/{{ session.examId }}/sessions">{{ session.exam.title }}</a></div>
+				<div ng-if="session.exam.note"><small><em>{{ session.exam.note }}</em></small></div>
+				<div>
+					<button class="btn btn-warning btn-xs" ng-click="go('/exam/' + session.examId + '/sessions')">Sessioni</button>
+					<button class="btn btn-primary btn-xs" ng-click="showModal(session.examId)"><span class="glyphicon glyphicon-info-sign"></span> Info...</button>
+				</div>
+			</td>
+			<td nowrap ng-class="session.isdone ? null : 'bg-success text-success'">{{ session.date | date : 'EEEE dd/MM/yyyy' }} <span ng-if="!session.isdone" class="glyphicon glyphicon-ok-sign"></span></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,58 @@
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" ng-click="cancel()"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+    <h4 class="modal-title">Esame <small>id: {{ exam.id }}</small></h4>
+</div>
+<div class="modal-body">
+	<table class="table">
+		<tbody>
+			<tr>
+				<td class="text-right">Titolo</td>
+				<td><strong>{{ exam.title }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Docente</td>
+				<td><strong>{{ exam.examInfo.teacher }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Url</td>
+				<td><strong><a href="http://esami.ctu.unimi.it/{{ exam.examInfo.url }}" target="_blank">{{ exam.examInfo.url }}</a></strong></td>
+			</tr>
+			<tr ng-if="exam.examInfo.note">
+				<td class="text-right">Note</td>
+				<td><strong>{{ exam.examInfo.note }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Controllo ip</td>
+				<td><strong>{{ exam.examInfo.checkIpAddress ? "sì" : "no" }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Raggruppamento</td>
+				<td><strong></strong>{{ exam.examInfo.grouped }}</td>
+			</tr>
+			<tr>
+				<td class="text-right">Report per risposte aperte</td>
+				<td><strong>{{ exam.examInfo.reportall ? "sì" : "no" }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Xslt personalizzati</td>
+				<td><strong>{{ exam.examInfo.customXslt ? "sì" : "no" }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Template autenticazione</td>
+				<td><strong>{{ exam.examInfo.authTemplate }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Report</td>
+				<td><strong>{{ exam.examInfo.Report ? "sì" : "no" }}</strong></td>
+			</tr>
+			<tr>
+				<td class="text-right">Correzione</td>
+				<td><strong>{{ exam.examInfo.Correction ? "sì" : "no" }}</strong></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cancel()">Close</button>
+	<button type="button" class="btn btn-primary">Save changes</button>
+</div>

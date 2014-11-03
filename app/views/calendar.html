@@ -1,0 +1,16 @@
+<h1><span class="glyphicon glyphicon-calendar"></span> Conteggio sessioni</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Data</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in calendar | orderBy : 'date' : true ">
+			<td><a href="#/month/{{ item.date | date : 'yyyy-MM-dd' }}">{{ item.date | date : 'MMMM yyyy' }}</a></td>
+			<td><span class="badge">{{ item.count }}</span></td>
+		</tr>
+	</tbody>
+</table>
