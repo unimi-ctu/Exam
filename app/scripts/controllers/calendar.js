@@ -9,7 +9,7 @@
  */
 angular.module('examApp')
   .controller('CalendarCtrl', function ($scope, $http) {
-	$http.get('http://ale.unimi.it/SurveyApi/api/exam/sessionCount').success(function (data) {
+	$http.get('http://api.unimi.it/ExamApi/api/exam/sessionCount').success(function (data) {
 		$scope.calendar = data;
 	});
 

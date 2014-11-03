@@ -11,7 +11,7 @@ angular.module('examApp')
 
   	$scope.now = new Date();
 
-	$http.get('http://ale.unimi.it/SurveyApi/api/exam/lastExamSessions/25').success(function (data) {
+	$http.get('http://api.unimi.it/ExamApi/api/exam/lastExamSessions/25').success(function (data) {
 		$scope.sessions = data;
 	});
 

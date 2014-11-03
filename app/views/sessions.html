@@ -27,7 +27,7 @@
 		<tr ng-repeat="session in sessions | orderBy : 'date' : true ">
 			<td><img class="img-circle" ng-src="http://lorempixel.com/40/40/abstract/{{ $index % 10 }}" /></td>
 			<td>{{ session.id }}</td>
-			<td ng-if="!examId">{{ session.exam.title }}</td>
+			<td ng-if="!examId">{{ session.Exam.title }}</td>
 			<td>{{ session.date | date : 'dd/MM/yyyy' }}</td>
 		</tr>
 		<tr colspan="{{ examId ? 3 : 4 }}" ng-if="!sessions.length">

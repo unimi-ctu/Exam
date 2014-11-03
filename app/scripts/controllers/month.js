@@ -15,7 +15,7 @@ angular.module('examApp')
 	$scope.nextMonth = new Date($routeParams.date);
 	$scope.nextMonth = $scope.nextMonth.setMonth($scope.nextMonth.getMonth() + 1);
 
-	$http.get('http://ale.unimi.it/SurveyApi/api/exam/examSessions/month/' + $routeParams.date).success(function (data) {
+	$http.get('http://api.unimi.it/ExamApi/api/exam/examSessions/month/' + $routeParams.date).success(function (data) {
 		$scope.sessions = data;
 	});
 });

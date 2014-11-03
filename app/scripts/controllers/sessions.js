@@ -12,7 +12,7 @@ angular.module('examApp')
   	$scope.examId = $routeParams.examId;
   	$scope.title = 'Elenco sessioni';
 
-	$http.get('http://ale.unimi.it/SurveyApi/api/exam/exam/' + $routeParams.examId + '/examSessions').success(function (data) {
+	$http.get('http://api.unimi.it/ExamApi/api/exam/exam/' + $routeParams.examId + '/examSessions').success(function (data) {
 		$scope.sessions = data;
 	});
   

@@ -5,7 +5,7 @@ angular.module('examApp')
 
   	$scope.examId = examId;
 
-  	$http.get('http://ale.unimi.it/SurveyApi/api/exam/examInfo/' + examId).success(function (data) {
+  	$http.get('http://api.unimi.it/ExamApi/api/exam/examInfo/' + examId).success(function (data) {
   		$scope.exam = data;
   	});
   	$scope.cancel = function() {
