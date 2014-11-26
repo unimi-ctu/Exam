@@ -351,7 +351,44 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // http://mindthecode.com/how-to-use-environment-variables-in-your-angular-application/
+    ngconstant: {
+      // options for all targets
+      options: {
+        space: '  ',
+        wrap: '\'use strict\';\n\n {%= __ngModule %}',
+        name: 'config'
+      },
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            // authUrl: 'https://www.elearning.unimi.it/authentication/',
+            // authSkin: 'portal/',
+            apiEndPoint: 'http://api.unimi.it/ExamApi/api/exam/'
+          }
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'production',
+            // authUrl: 'https://www.elearning.unimi.it/authentication/',
+            // authSkin: 'portal/',
+            apiEndPoint: 'http://ariel.ariel.ctu.unimi.it/ExamAPI/api/exam/'
+          }
+        }
+      }
     }
+
   });
 
 
@@ -362,6 +399,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development', // configuration
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -385,6 +423,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production', // configuration
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
@@ -397,7 +436,9 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'ngconstant:development' // configuration
+
   ]);
 
   grunt.registerTask('default', [

@@ -7,11 +7,11 @@
  * Controller of the examApp
  */
 angular.module('examApp')
-  .controller('ExamsCtrl', function ($scope, $http, $modal, $location) {
+  .controller('ExamsCtrl', function ($scope, $http, $modal, $location, ENV) {
 
   	$scope.now = new Date();
 
-	$http.get('http://api.unimi.it/ExamApi/api/exam/lastExamSessions/25').success(function (data) {
+	$http.get(ENV.apiEndPoint + 'lastExamSessions/25').success(function (data) {
 		$scope.sessions = data;
 	});
 

@@ -10,6 +10,7 @@
  */
 angular
   .module('examApp', [
+    'config',
     'ngAnimate',
     'ngCookies',
     'ngResource',

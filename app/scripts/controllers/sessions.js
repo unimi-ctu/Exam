@@ -8,11 +8,11 @@
  * Controller of the examApp
  */
 angular.module('examApp')
-  .controller('SessionsCtrl', function ($scope, $http, $routeParams, $modal) {
+  .controller('SessionsCtrl', function ($scope, $http, $routeParams, $modal, ENV) {
   	$scope.examId = $routeParams.examId;
   	$scope.title = 'Elenco sessioni';
 
-	$http.get('http://api.unimi.it/ExamApi/api/exam/exam/' + $routeParams.examId + '/examSessions').success(function (data) {
+	$http.get(ENV.apiEndPoint + 'exam/' + $routeParams.examId + '/examSessions').success(function (data) {
 		$scope.sessions = data;
 	});
   

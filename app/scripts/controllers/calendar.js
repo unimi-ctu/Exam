@@ -8,8 +8,8 @@
  * Controller of the examApp
  */
 angular.module('examApp')
-  .controller('CalendarCtrl', function ($scope, $http) {
-	$http.get('http://api.unimi.it/ExamApi/api/exam/sessionCount').success(function (data) {
+  .controller('CalendarCtrl', function ($scope, $http, ENV) {
+	$http.get(ENV.apiEndPoint + 'sessionCount').success(function (data) {
 		$scope.calendar = data;
 	});
 
